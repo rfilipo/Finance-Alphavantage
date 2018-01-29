@@ -18,9 +18,9 @@ my $av = new Finance::AlphaVantage(
 
 my $q = $av->process(
     function => 'TIME_SERIES_WEEKLY',
-		symbol   => 'BTC',
+    symbol   => 'BTC',
     market   => 'CNY'
-		);
+);
   
 ```
 For more information use:
