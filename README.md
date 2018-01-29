@@ -1,8 +1,8 @@
-#Finance::AlphaVantage
+# Finance::AlphaVantage
 
 Simple client for www.alphavantage.co quotes.
 
-##Usage
+## Usage
 
 ```perl
 
