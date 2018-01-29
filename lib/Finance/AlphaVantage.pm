@@ -12,7 +12,11 @@ Finance::AlphaVantage - The great new Finance::AlphaVantage!
 
 =head1 VERSION
 
+<<<<<<< HEAD
+ Version 0.01
+=======
 Version 0.01
+>>>>>>> 3f45d94d7a3dded48288d0bcc8e5bb8295ce8654
 
 =cut
 
@@ -21,6 +25,42 @@ our $VERSION = '0.01';
 
 =head1 SYNOPSIS
 
+<<<<<<< HEAD
+ # creates the av object with default values
+
+ $av = new Finance::AlphaVantage;
+
+ # sets values
+ $av->{url}      = "https://www.alphavantage.co/query";
+ $av->{apikey}   = "demo";
+ $av->{datatype} = "json";
+
+ # or construct
+
+ $av = new Finance::AlphaVantage(
+    url      =>"https://www.alphavantage.co/query",
+    apikey   => "demo",
+    datatype => "json"
+ );
+
+ # AlphaVantage functions
+
+ # https://www.alphavantage.co/query?function=TIME_SERIES_WEEKLY&symbol=MSFT&apikey=demo
+ $q = $av->process(
+    function => 'TIME_SERIES_WEEKLY',
+    symbol   => 'MSFT'
+ );
+
+ # https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY&symbol=MSFT&interval=1min&apikey=demo
+ $q = $av->process(
+   function => 'TIME_SERIES_INTRADAY',
+   symbol   => "MSFT",
+   interval => "1min"
+ );
+
+=cut
+
+=======
 # creates the av object with default values
 
 	$av = new Finance::AlphaVantage;
@@ -58,6 +98,7 @@ our $VERSION = '0.01';
 
 =cut
 
+>>>>>>> 3f45d94d7a3dded48288d0bcc8e5bb8295ce8654
 =head1 SUBROUTINES/METHODS
 
 =head2 new
@@ -96,8 +137,25 @@ sub new {
 
 =head2 process
 
+<<<<<<< HEAD
 Download quote from AlphaVantage
 
+=======
+<<<<<<< HEAD
+ Gets the function desired.
+
+ # Example
+
+ # https://www.alphavantage.co/query?function=TIME_SERIES_WEEKLY&symbol=MSFT&apikey=demo
+ $q = $av->process(
+    function => 'TIME_SERIES_WEEKLY',
+    symbol   => 'MSFT'
+ );
+
+
+=======
+>>>>>>> 3f45d94d7a3dded48288d0bcc8e5bb8295ce8654
+>>>>>>> f3cbee20fad22247bde9c7c2747c61c926e4f109
 =cut
 
 sub process {

@@ -10,7 +10,15 @@ use Finance::AlphaVantage;
 
 my $apikey = $ENV{'ALPHAVANTAGE_API_KEY'};
 
+<<<<<<< HEAD
 print "Using apikey ".$apikey."\n";
+=======
+<<<<<<< HEAD
+print "Using apikey ".$apikey."\n";
+=======
+print "Using apikey ".$apikey;
+>>>>>>> 3f45d94d7a3dded48288d0bcc8e5bb8295ce8654
+>>>>>>> f3cbee20fad22247bde9c7c2747c61c926e4f109
 
 my $av = new Finance::AlphaVantage(
    url      =>"https://www.alphavantage.co/query",
@@ -20,9 +28,15 @@ my $av = new Finance::AlphaVantage(
 
 my $q = $av->process(
     function => 'TIME_SERIES_WEEKLY',
+<<<<<<< HEAD
 		symbol   => 'BTC',
     market   => 'CNY'
 		);
+=======
+    symbol   => 'BTC',
+    market   => 'CNY'
+);
+>>>>>>> 3f45d94d7a3dded48288d0bcc8e5bb8295ce8654
 
 ok( $av->{lastcall} =~ /function=TIME_SERIES_WEEKLY/, "Verify URL" );
 
