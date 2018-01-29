@@ -22,41 +22,41 @@ our $VERSION = '0.01';
 =head1 SYNOPSIS
 
 # creates the av object with default values
-$av = new Finance::AlphaVantage;
+
+	$av = new Finance::AlphaVantage;
 
 # sets values
-$av->{url}      = "https://www.alphavantage.co/query";
-$av->{apikey}   = "demo";
-$av->{datatype} = "json";
+
+	$av->{url}      = "https://www.alphavantage.co/query";
+	$av->{apikey}   = "demo";
+	$av->{datatype} = "json";
 
 # or construct
-$av = new Finance::AlphaVantage(
-   url      =>"https://www.alphavantage.co/query",
-   apikey   => "demo",
-   datatype => "json"
-);
+
+	$av = new Finance::AlphaVantage(
+		 url      =>"https://www.alphavantage.co/query",
+		 apikey   => "demo",
+		 datatype => "json"
+	);
 
 # AlphaVantage functions
 
 # https://www.alphavantage.co/query?function=TIME_SERIES_WEEKLY&symbol=MSFT&apikey=demo
-$q = $av->process(
-    function => 'TIME_SERIES_WEEKLY',
-		symbol   => 'MSFT'
-		);
+
+	$q = $av->process(
+			function => 'TIME_SERIES_WEEKLY',
+			symbol   => 'MSFT'
+			);
 
 # https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY&symbol=MSFT&interval=1min&apikey=demo
-$q = $av->process(
-   function => 'TIME_SERIES_INTRADAY',
-   symbol   => "MSFT",
-   interval => "1min"
-);
+
+	$q = $av->process(
+		 function => 'TIME_SERIES_INTRADAY',
+		 symbol   => "MSFT",
+		 interval => "1min"
+	);
 
 =cut
-
-=head1 EXPORT
-
-A list of functions that can be exported.  You can delete this section
-if you don't export anything, such as for a purely object-oriented module.
 
 =head1 SUBROUTINES/METHODS
 
@@ -95,6 +95,8 @@ sub new {
 }
 
 =head2 process
+
+Download quote from AlphaVantage
 
 =cut
 

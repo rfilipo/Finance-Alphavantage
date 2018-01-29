@@ -10,7 +10,7 @@ use Finance::AlphaVantage;
 
 my $apikey = $ENV{'ALPHAVANTAGE_API_KEY'};
 
-print "Using apikey ".$apikey;
+print "Using apikey ".$apikey."\n";
 
 my $av = new Finance::AlphaVantage(
    url      =>"https://www.alphavantage.co/query",
@@ -25,8 +25,6 @@ my $q = $av->process(
 		);
 
 ok( $av->{lastcall} =~ /function=TIME_SERIES_WEEKLY/, "Verify URL" );
+
 ok( $av->{lastcall} =~ /apikey=/, "Verify apikey" );
 
-use Data::Dumper;
-print Dumper $av->{lastcall};
-print Dumper $q;
