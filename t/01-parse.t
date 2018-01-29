@@ -20,13 +20,11 @@ my $av = new Finance::AlphaVantage(
 
 my $q = $av->process(
     function => 'TIME_SERIES_WEEKLY',
-		symbol   => 'BTC',
+    symbol   => 'BTC',
     market   => 'CNY'
-		);
+);
 
 ok( $av->{lastcall} =~ /function=TIME_SERIES_WEEKLY/, "Verify URL" );
+
 ok( $av->{lastcall} =~ /apikey=/, "Verify apikey" );
 
-use Data::Dumper;
-print Dumper $av->{lastcall};
-print Dumper $q;
