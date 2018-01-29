@@ -2,6 +2,14 @@
 
 Simple client for www.alphavantage.co quotes.
 
+## Install
+
+```shell
+
+cpanm https://github.com/rfilipo/Finance-Alphavantage.git
+
+```
+
 ## Usage
 
 ```perl
