@@ -2,6 +2,11 @@
 
 Simple client for www.alphavantage.co quotes.
 
+It's aimed to be used in the App::Tulip system.
+
+https://github.com/rfilipo/App-Tulip
+
+
 ## Install
 
 ```shell
