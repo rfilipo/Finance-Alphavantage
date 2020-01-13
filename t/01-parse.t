@@ -13,9 +13,9 @@ my $apikey = $ENV{'ALPHAVANTAGE_API_KEY'};
 print "Using apikey ".$apikey."\n";
 
 my $av = new Finance::AlphaVantage(
-   url      =>"https://www.alphavantage.co/query",
-   apikey   => $apikey,
-   datatype => "json"
+    url      => "https://www.alphavantage.co/query",
+    apikey   => $apikey,
+    datatype => "json"
 );
 
 my $q = $av->process(
