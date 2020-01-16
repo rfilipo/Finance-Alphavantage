@@ -18,7 +18,6 @@ Version 0.01
 
 our $VERSION = '0.01';
 
-
 =head1 SYNOPSIS
 
  # creates the av object with default values
@@ -67,28 +66,29 @@ my $SINGLETON = undef;
 
 # Access to the Singleton post-construction
 sub instance {
-	$SINGLETON or Carp::croak('Finance::AlphaVantage->new has not been called yet');
+    $SINGLETON or Carp::croak('Finance::AlphaVantage->new has not been called yet');
 }
 
 # The order of initialisation here is VERY important
 sub new {
-	Carp::croak('Finance::AlphaVantage->new already called. Use Finance::AlphaVantage->instance') if $SINGLETON;
-	my $class = shift;
-	my %opt  = @_;
+    Carp::croak('Finance::AlphaVantage->new already called. Use Finance::AlphaVantage->instance') if $SINGLETON;
+    my $class = shift;
+    my %opt   = @_;
 
-  my $ua = LWP::UserAgent->new;
-  $ua->agent("Perl Finance-AlphaVantage/0.1 ");
-  
-	# Create the default object
-	my $self = $SINGLETON = bless {
-    ua  => $ua,
-    url => $opt{url} || "https://www.alphavantage.co/query",
-		apikey=> $opt{apikey} || "demo",
-		datatype=> $opt{datatype} || "json",
-		# Parsed command-line options
-		opt => \%opt,
-	}, $class;
-	return $self;
+    my $ua = LWP::UserAgent->new;
+    $ua->agent("Perl Finance-AlphaVantage/0.1 ");
+
+    # Create the default object
+    my $self = $SINGLETON = bless {
+        ua       => $ua,
+        url      => $opt{url} || "https://www.alphavantage.co/query",
+        apikey   => $opt{apikey} || "demo",
+        datatype => $opt{datatype} || "json",
+
+        # Parsed command-line options
+        opt => \%opt,
+    }, $class;
+    return $self;
 }
 
 =head2 process
@@ -107,17 +107,17 @@ sub new {
 =cut
 
 sub process {
-	my $self = shift;
-	my %opts  = @_;
-  my $url = $self->{url};
-  my $op = "?";
-  map { $url .= $op.$_."=".$opts{$_}; $op="&";} keys %opts;
-	$url .= "&apikey=".$self->{apikey};
-  $self->{lastcall} = $url;
-  my $req = HTTP::Request->new(GET => $url);
-  my $res = $self->{ua}->request($req);
-  if ($res->is_success) { return $res->content; }
-  else { return $res->status_line, "\n"; }
+    my $self = shift;
+    my %opts = @_;
+    my $url  = $self->{url};
+    my $op   = "?";
+    map { $url .= $op . $_ . "=" . $opts{$_}; $op = "&"; } keys %opts;
+    $url .= "&apikey=" . $self->{apikey};
+    $self->{lastcall} = $url;
+    my $req = HTTP::Request->new( GET => $url );
+    my $res = $self->{ua}->request($req);
+    if   ( $res->is_success ) { return $res->content; }
+    else                      { return $res->status_line, "\n"; }
 }
 
 =head1 AUTHOR
@@ -138,7 +138,6 @@ automatically be notified of progress on your bug as I make changes.
 You can find documentation for this module with the perldoc command.
 
     perldoc Finance::AlphaVantage
-
 
 You can also look for information at:
 
@@ -209,4 +208,4 @@ EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 =cut
 
-1; # End of Finance::AlphaVantage
+1;    # End of Finance::AlphaVantage
